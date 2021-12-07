@@ -11,7 +11,7 @@
     'depends': [],
     'demo': [],
     'data': [
-
+        'views/patient.xml',
     ],
     'installable': True,
     'applicating': True,
