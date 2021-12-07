@@ -8,7 +8,7 @@
     'author': 'Odoo Mates',
     'maintainer': 'Odoo Mates',
     'website': 'odoomates.com',
-    'depends': [],
+    'depends': ['sale'],
     'demo': [],
     'data': [
         'views/patient.xml',
