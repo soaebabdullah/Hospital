@@ -13,6 +13,7 @@
     'data': [
         'views/patient.xml',
         'security/ir.model.access.csv',
+        'data/sequence.xml',
     ],
     'installable': True,
     'applicating': True,
