@@ -12,6 +12,7 @@
     'demo': [],
     'data': [
         'views/patient.xml',
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'applicating': True,
