@@ -16,6 +16,7 @@ class HospitalPatient(models.Model):
     patient_name = fields.Char(string='Name', required=True)
     patient_age = fields.Integer('Age')
     test = fields.Text(string='Test Report ')
+    image_1920 = fields.Image("Image")
     image = fields.Binary(string='Report Image')
     name = fields.Char(string="Pathologist Name ")
     name_seq = fields.Char(string='Patient ID', required=True, copy=False, readonly=True,
@@ -24,6 +25,18 @@ class HospitalPatient(models.Model):
         ('male', 'Male'),
         ('fe_male', 'Female'),
     ], default='male', string="Gender")
+    age_group = fields.Selection([
+        ('major', 'Major'),
+        ('minor', 'Minor'),
+    ], string="Age Group", compute='set_age_group', store=True)
+
+    @api.depends('patient_age')
+    def set_age_group(self):
+        for rec in self:
+            rec.age_group = 'major'
+            if rec.patient_age:
+                if rec.patient_age < 18:
+                    rec.age_group = 'minor'
 
     # Creating Sequence
     @api.model
