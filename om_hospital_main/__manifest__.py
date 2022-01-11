@@ -14,6 +14,8 @@
         'views/patient.xml',
         'security/ir.model.access.csv',
         'data/sequence.xml',
+        'reports/report.xml',
+        'reports/patient_card.xml',
     ],
     'installable': True,
     'applicating': True,
