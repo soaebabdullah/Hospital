@@ -13,13 +13,13 @@ class HospitalPatient(models.Model):
     _description = 'Patient Record'
     _rec_name = 'patient_name'
 
-    patient_name = fields.Char(string='Name', required=True)
-    patient_age = fields.Integer('Age')
-    test = fields.Text(string='Test Report ')
+    patient_name = fields.Char(string="Name", required=True, track_visibility ="always")
+    patient_age = fields.Integer('Age', track_visibility ="always")
+    test = fields.Text(string="Test Report")
     image_1920 = fields.Image("Image")
-    image = fields.Binary(string='Report Image')
+    image = fields.Binary(string="Patient Image")
     name = fields.Char(string="Pathologist Name ")
-    name_seq = fields.Char(string='Patient ID', required=True, copy=False, readonly=True,
+    name_seq = fields.Char(string= "Patient ID", required=True, copy=False, readonly=True,
                            index=True, default=lambda self: _('New'))
     gender = fields.Selection([
         ('male', 'Male'),
@@ -30,6 +30,7 @@ class HospitalPatient(models.Model):
         ('minor', 'Minor'),
     ], string="Age Group", compute='set_age_group', store=True)
 
+    # Write Compute Field and its Function
     @api.depends('patient_age')
     def set_age_group(self):
         for rec in self:

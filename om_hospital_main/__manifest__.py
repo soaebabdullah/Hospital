@@ -16,6 +16,7 @@
         'data/sequence.xml',
         'reports/report.xml',
         'reports/patient_card.xml',
+
     ],
     'installable': True,
     'applicating': True,
